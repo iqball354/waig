@@ -1,0 +1,8 @@
+{
+  "name": "meta-automation-laravel",
+  "description": "Laravel 11 + Bootstrap 5 version of Meta Automation",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"console.log('Laravel code generated. Please test locally using PHP and MariaDB.')\" && tail -f /dev/null"
+  }
+}
