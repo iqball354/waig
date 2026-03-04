@@ -1,8 +1,10 @@
 import './style.css';
+import { api } from './api.js';
 
 // Simple hash-based router
 const routes = {};
 let currentCleanup = null;
+let cachedUser = null;
 
 export function route(path, handler) {
     routes[path] = handler;
@@ -12,29 +14,23 @@ export function navigate(path) {
     window.location.hash = '#' + path;
 }
 
-export function isAuthenticated() {
-    return sessionStorage.getItem('waig_auth') === 'true';
-}
-
-export function setAuth(val) {
-    if (val) {
-        sessionStorage.setItem('waig_auth', 'true');
-        sessionStorage.setItem('waig_user', JSON.stringify({
-            name: 'Budi Santoso',
-            email: 'budi.santoso@waigpilot.io',
-            role: 'Admin Pro',
-            avatar: 'https://lh3.googleusercontent.com/aida-public/AB6AXuALU4Q28EP7AJxictBV8yF-8wlW4_IaczsEyB_5l10Ug2vOVeXCNROxPcBUFsluKNMJxa_WxnwlaVZcezsWRs_4AKXXbdH52pD7Wx-VtuZ2UCRBFRgkTwGgx-oByf6NN2FMvMItFIwhSHxdJxNp026OxUcLTN-Lq7k9cfh6DoM-s1_1-G_RYe6s9BpcpXM2fQUPK8eV7Ugz6ad9cTyxjj2j9RH8krJ5Lzj0qiEfZnMjkV58UxZn-nMZZIVZPV817u7LXQWTeXX4cUk',
-            bio: 'Administrator berpengalaman yang mengelola infrastruktur IT dan operasional sistem harian.',
-        }));
-    } else {
-        sessionStorage.removeItem('waig_auth');
-        sessionStorage.removeItem('waig_user');
+export async function isAuthenticated() {
+    try {
+        const data = await api.me();
+        cachedUser = data.user;
+        return true;
+    } catch {
+        cachedUser = null;
+        return false;
     }
 }
 
 export function getUser() {
-    try { return JSON.parse(sessionStorage.getItem('waig_user')); }
-    catch { return null; }
+    return cachedUser;
+}
+
+export function setUser(user) {
+    cachedUser = user;
 }
 
 async function handleRoute() {
@@ -43,11 +39,13 @@ async function handleRoute() {
 
     // Auth guard
     const publicRoutes = ['/login', '/register', '/forgot-password'];
-    if (!publicRoutes.includes(hash) && !isAuthenticated()) {
+    const authed = await isAuthenticated();
+
+    if (!publicRoutes.includes(hash) && !authed) {
         navigate('/login');
         return;
     }
-    if (hash === '/login' && isAuthenticated()) {
+    if (hash === '/login' && authed) {
         navigate('/dashboard');
         return;
     }

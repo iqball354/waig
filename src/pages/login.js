@@ -1,7 +1,8 @@
-import { navigate, setAuth } from '../main.js';
+import { navigate, setUser } from '../main.js';
+import { api } from '../api.js';
 
 export function loginPage(app) {
-    app.innerHTML = `
+  app.innerHTML = `
   <div class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 via-background-light to-slate-100">
     <div class="w-full max-w-md">
       <div class="card p-8 shadow-xl border-0" style="border-radius: 28px;">
@@ -14,13 +15,16 @@ export function loginPage(app) {
           <p class="text-slate-500 mt-1">Silakan masuk untuk mengelola sistem Anda</p>
         </div>
 
+        <!-- Error Banner -->
+        <div id="login-error" class="hidden mb-4 p-3 bg-rose-50 border border-rose-200 rounded-xl text-sm text-rose-600 text-center font-medium"></div>
+
         <!-- Form -->
         <form id="login-form">
           <div class="mb-5">
             <label class="block text-sm font-bold text-slate-700 mb-2">Alamat Email</label>
             <div class="input-group">
               <span class="input-icon"><span class="material-symbols-outlined text-xl">mail</span></span>
-              <input type="email" placeholder="nama@perusahaan.com" required />
+              <input type="email" id="login-email" placeholder="nama@perusahaan.com" value="admin@waigpilot.io" required />
             </div>
           </div>
 
@@ -31,7 +35,7 @@ export function loginPage(app) {
             </div>
             <div class="input-group">
               <span class="input-icon"><span class="material-symbols-outlined text-xl">lock</span></span>
-              <input type="password" id="login-password" placeholder="••••••••" required />
+              <input type="password" id="login-password" placeholder="••••••••" value="admin123" required />
               <button type="button" id="toggle-password" class="px-3 text-slate-400 hover:text-slate-600 cursor-pointer">
                 <span class="material-symbols-outlined text-xl">visibility</span>
               </button>
@@ -43,9 +47,9 @@ export function loginPage(app) {
             <label for="remember" class="text-sm text-slate-600">Ingat saya di perangkat ini</label>
           </div>
 
-          <button type="submit" class="btn-primary w-full justify-center py-3 text-base shadow-lg shadow-primary/25">
+          <button type="submit" id="login-btn" class="btn-primary w-full justify-center py-3 text-base shadow-lg shadow-primary/25">
             <span class="material-symbols-outlined text-xl">login</span>
-            Login Meta
+            <span id="login-btn-text">Login Meta</span>
           </button>
         </form>
 
@@ -88,23 +92,42 @@ export function loginPage(app) {
     </div>
   </div>`;
 
-    // Login handler
-    document.getElementById('login-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        setAuth(true);
-        navigate('/dashboard');
-    });
+  // Login handler — calls backend API
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    const btn = document.getElementById('login-btn');
+    const btnText = document.getElementById('login-btn-text');
+    const errorEl = document.getElementById('login-error');
 
-    // Password toggle
-    document.getElementById('toggle-password').addEventListener('click', () => {
-        const input = document.getElementById('login-password');
-        const icon = document.querySelector('#toggle-password .material-symbols-outlined');
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.textContent = 'visibility_off';
-        } else {
-            input.type = 'password';
-            icon.textContent = 'visibility';
-        }
-    });
+    btn.disabled = true;
+    btnText.textContent = 'Memproses...';
+    errorEl.classList.add('hidden');
+
+    try {
+      const data = await api.login(email, password);
+      setUser(data.user);
+      navigate('/dashboard');
+    } catch (err) {
+      errorEl.textContent = err.message || 'Login gagal. Periksa email dan password Anda.';
+      errorEl.classList.remove('hidden');
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = 'Login Meta';
+    }
+  });
+
+  // Password toggle
+  document.getElementById('toggle-password').addEventListener('click', () => {
+    const input = document.getElementById('login-password');
+    const icon = document.querySelector('#toggle-password .material-symbols-outlined');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  });
 }

@@ -1,4 +1,5 @@
-import { navigate, getUser, setAuth } from '../main.js';
+import { navigate, getUser } from '../main.js';
+import { api } from '../api.js';
 
 const navItems = [
   { icon: 'dashboard', label: 'Dashboard', path: '/dashboard' },
@@ -83,8 +84,8 @@ export function renderLayout(app, pageTitle, contentHtml) {
   </div>`;
 
   // Logout handler
-  document.getElementById('btn-logout')?.addEventListener('click', () => {
-    setAuth(false);
+  document.getElementById('btn-logout')?.addEventListener('click', async () => {
+    await api.logout();
     navigate('/login');
   });
 }
