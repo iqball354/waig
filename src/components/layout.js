@@ -1,16 +1,19 @@
 import { navigate, getUser } from '../main.js';
 import { api } from '../api.js';
 
-const navItems = [
-  { icon: 'dashboard', label: 'Dashboard', path: '/dashboard' },
-  { icon: 'link', label: 'Akun Terhubung', path: '/accounts' },
-  { icon: 'add_box', label: 'Buat Postingan', path: '/create-posting' },
-  { icon: 'calendar_month', label: 'Kalender', path: '/dashboard' },
-  { icon: 'analytics', label: 'Statistik', path: '/dashboard' },
-  { icon: 'download', label: 'Ekspor Data', path: '/export-data' },
-  { icon: 'settings', label: 'Pengaturan', path: '/dashboard' },
-  { icon: 'person', label: 'Profil', path: '/profile' },
-];
+function getNavItems(user) {
+  const items = [
+    { icon: 'dashboard', label: 'Dashboard', path: '/dashboard' },
+    { icon: 'link', label: 'Akun Terhubung', path: '/accounts' },
+    { icon: 'add_box', label: 'Buat Postingan', path: '/create-posting' },
+    { icon: 'download', label: 'Ekspor Data', path: '/export-data' },
+    { icon: 'person', label: 'Profil', path: '/profile' },
+  ];
+  if (user?.role === 'admin') {
+    items.push({ icon: 'admin_panel_settings', label: 'Kelola User', path: '/admin/users' });
+  }
+  return items;
+}
 
 export function renderLayout(app, pageTitle, contentHtml) {
   const currentPath = window.location.hash.slice(1) || '/dashboard';
@@ -33,7 +36,7 @@ export function renderLayout(app, pageTitle, contentHtml) {
       </div>
 
       <nav class="flex-1 px-4 py-2 space-y-1">
-        ${navItems.map(item => `
+        ${getNavItems(user).map(item => `
           <a href="#${item.path}" class="nav-link ${currentPath === item.path ? 'active' : ''}">
             <span class="material-symbols-outlined">${item.icon}</span>
             <span>${item.label}</span>

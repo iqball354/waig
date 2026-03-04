@@ -38,7 +38,7 @@ async function handleRoute() {
     const app = document.getElementById('app');
 
     // Auth guard
-    const publicRoutes = ['/login', '/register', '/forgot-password'];
+    const publicRoutes = ['/login', '/forgot-password'];
     const authed = await isAuthenticated();
 
     if (!publicRoutes.includes(hash) && !authed) {
@@ -69,22 +69,22 @@ async function handleRoute() {
 
 // Register pages
 import { loginPage } from './pages/login.js';
-import { registerPage } from './pages/register.js';
 import { forgotPasswordPage } from './pages/forgot-password.js';
 import { dashboardPage } from './pages/dashboard.js';
 import { createPostingPage } from './pages/create-posting.js';
 import { accountsPage } from './pages/accounts.js';
 import { profilePage } from './pages/profile.js';
 import { exportDataPage } from './pages/export-data.js';
+import { adminUsersPage } from './pages/admin-users.js';
 
 route('/login', loginPage);
-route('/register', registerPage);
 route('/forgot-password', forgotPasswordPage);
 route('/dashboard', dashboardPage);
 route('/create-posting', createPostingPage);
 route('/accounts', accountsPage);
 route('/profile', profilePage);
 route('/export-data', exportDataPage);
+route('/admin/users', adminUsersPage);
 
 window.addEventListener('hashchange', handleRoute);
 window.addEventListener('DOMContentLoaded', handleRoute);
