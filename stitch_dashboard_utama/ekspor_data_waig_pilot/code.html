@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ekspor Data - Waig Pilot</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0668e0",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="bg-primary/10 rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">flight_takeoff</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-none">Waig Pilot</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Admin Panel</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Laporan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/10 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">download</span>
+<span class="text-sm font-bold">Ekspor Data</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Pengaturan</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="flex items-center gap-3 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
+<div class="size-10 rounded-full bg-slate-300 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Admin Avatar" data-alt="User profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsGotI-yIN8cRcCZNsEoHVT6PSc3kEcbLWw0htVyuoNIAtxn9EbHZjTagTXPBM1K5pNp_noSxLGAafiK3QQsr0yUNI8ScV3UerJ2yws8IzDDvEez-EYSJ8yC7Zx6JPOnvXHeJFSsKCS353IMJUTlKpX7U_fWdau5spCjczowncUK1XuDgIrT3lOwt5WAU2roMtTmXDfXMffnEVLedh-al1PPxBrlhWSy3vvbMxCz9Ca2Y11eqisMsLBLoJG_UPv8aSGDCaNqLiO4E"/>
+</div>
+<div class="flex flex-col min-w-0">
+<p class="text-sm font-bold truncate">Super Admin</p>
+<p class="text-xs text-slate-500 truncate">admin@waigpilot.io</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="mb-8">
+<h2 class="text-3xl font-black tracking-tight mb-2">Ekspor Data</h2>
+<p class="text-slate-500 dark:text-slate-400">Pilih jenis laporan, rentang waktu, dan format file untuk diunduh.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Configuration Form -->
+<div class="lg:col-span-2 space-y-6">
+<!-- Step 1: Jenis Laporan -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="text-primary material-symbols-outlined">analytics</span>
+                            1. Pilih Jenis Laporan
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<label class="relative flex flex-col p-4 border-2 border-primary bg-primary/5 rounded-xl cursor-pointer">
+<input checked="" class="sr-only" name="report_type" type="radio"/>
+<span class="material-symbols-outlined text-primary mb-2">post_add</span>
+<span class="font-bold text-sm">Laporan Postingan</span>
+<span class="text-xs text-slate-500">Ringkasan performa konten</span>
+</label>
+<label class="relative flex flex-col p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
+<input class="sr-only" name="report_type" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 mb-2">equalizer</span>
+<span class="font-bold text-sm">Statistik Performa</span>
+<span class="text-xs text-slate-500">Metrik pertumbuhan akun</span>
+</label>
+<label class="relative flex flex-col p-4 border-2 border-slate-200 dark:border-slate-800 rounded-xl cursor-pointer hover:border-primary/50 transition-colors">
+<input class="sr-only" name="report_type" type="radio"/>
+<span class="material-symbols-outlined text-slate-400 mb-2">history</span>
+<span class="font-bold text-sm">Log Aktivitas Akun</span>
+<span class="text-xs text-slate-500">Riwayat akses dan perubahan</span>
+</label>
+</div>
+</section>
+<!-- Step 2: Filter & Platform -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="text-primary material-symbols-outlined">filter_list</span>
+                            2. Filter &amp; Platform
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-bold mb-2">Platform Sosial Media</label>
+<div class="flex gap-4">
+<label class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Facebook</span>
+</label>
+<label class="flex items-center gap-2">
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm font-medium">Instagram</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold mb-2">Format File</label>
+<select class="w-full rounded-lg border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-primary focus:border-primary">
+<option value="csv">CSV (.csv)</option>
+<option value="pdf">PDF (.pdf)</option>
+<option value="excel">Excel (.xlsx)</option>
+</select>
+</div>
+</div>
+</section>
+</div>
+<!-- Date Picker Sidebar (Inspired by provided component) -->
+<div class="space-y-6">
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="text-primary material-symbols-outlined">calendar_today</span>
+                            3. Rentang Waktu
+                        </h3>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between mb-4">
+<button class="hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold">Mei 2024</p>
+<button class="hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center mb-2">
+<span class="text-slate-400 text-xs font-bold uppercase">S</span>
+<span class="text-slate-400 text-xs font-bold uppercase">M</span>
+<span class="text-slate-400 text-xs font-bold uppercase">T</span>
+<span class="text-slate-400 text-xs font-bold uppercase">W</span>
+<span class="text-slate-400 text-xs font-bold uppercase">T</span>
+<span class="text-slate-400 text-xs font-bold uppercase">F</span>
+<span class="text-slate-400 text-xs font-bold uppercase">S</span>
+</div>
+<div class="grid grid-cols-7 gap-y-1">
+<!-- Calendar Grid with highlighted range -->
+<div class="h-9 w-full flex items-center justify-center text-sm text-slate-300">28</div>
+<div class="h-9 w-full flex items-center justify-center text-sm text-slate-300">29</div>
+<div class="h-9 w-full flex items-center justify-center text-sm text-slate-300">30</div>
+<button class="h-9 w-full text-sm font-medium rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">1</button>
+<button class="h-9 w-full text-sm font-medium rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">2</button>
+<button class="h-9 w-full text-sm font-medium rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">3</button>
+<button class="h-9 w-full text-sm font-medium rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">4</button>
+<button class="h-9 w-full text-white bg-primary rounded-l-full text-sm font-bold">5</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">6</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">7</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">8</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">9</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">10</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">11</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">12</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">13</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">14</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">15</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">16</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">17</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">18</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">19</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">20</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">21</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">22</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">23</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">24</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">25</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">26</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">27</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">28</button>
+<button class="h-9 w-full bg-primary/20 text-slate-900 dark:text-slate-100 text-sm font-medium">29</button>
+<button class="h-9 w-full text-white bg-primary rounded-r-full text-sm font-bold">30</button>
+<button class="h-9 w-full text-sm font-medium rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">31</button>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-primary text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">download</span>
+                                Generate &amp; Ekspor
+                            </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Recent Exports Table -->
+<section class="mt-8 bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold mb-6">Riwayat Ekspor Terakhir</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 uppercase text-xs font-bold">
+<tr>
+<th class="px-4 py-3 rounded-l-lg">Nama Laporan</th>
+<th class="px-4 py-3">Rentang Waktu</th>
+<th class="px-4 py-3">Format</th>
+<th class="px-4 py-3">Status</th>
+<th class="px-4 py-3 rounded-r-lg text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-4 font-medium">Laporan Postingan Mei.pdf</td>
+<td class="px-4 py-4 text-slate-500">01/05/2024 - 31/05/2024</td>
+<td class="px-4 py-4"><span class="px-2 py-1 bg-red-100 text-red-600 rounded text-xs font-bold uppercase">PDF</span></td>
+<td class="px-4 py-4">
+<span class="flex items-center gap-1.5 text-green-600 font-medium">
+<span class="size-2 bg-green-500 rounded-full"></span> Selesai
+                                    </span>
+</td>
+<td class="px-4 py-4 text-right">
+<button class="text-primary font-bold hover:underline">Unduh</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Statistik Performa Q1.xlsx</td>
+<td class="px-4 py-4 text-slate-500">01/01/2024 - 31/03/2024</td>
+<td class="px-4 py-4"><span class="px-2 py-1 bg-green-100 text-green-600 rounded text-xs font-bold uppercase">XLSX</span></td>
+<td class="px-4 py-4">
+<span class="flex items-center gap-1.5 text-green-600 font-medium">
+<span class="size-2 bg-green-500 rounded-full"></span> Selesai
+                                    </span>
+</td>
+<td class="px-4 py-4 text-right">
+<button class="text-primary font-bold hover:underline">Unduh</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Log Aktivitas Mingguan.csv</td>
+<td class="px-4 py-4 text-slate-500">15/05/2024 - 22/05/2024</td>
+<td class="px-4 py-4"><span class="px-2 py-1 bg-blue-100 text-blue-600 rounded text-xs font-bold uppercase">CSV</span></td>
+<td class="px-4 py-4">
+<span class="flex items-center gap-1.5 text-slate-400 font-medium">
+<span class="size-2 bg-slate-400 rounded-full"></span> Diproses
+                                    </span>
+</td>
+<td class="px-4 py-4 text-right">
+<button class="text-slate-400 font-bold cursor-not-allowed" disabled="">Tunggu</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+</body></html>

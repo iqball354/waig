@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meta Auto Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0668e0",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl font-bold">rocket_launch</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-none">Meta Auto</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Sistem Otomasi Konten</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-semibold transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm">Beranda</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">link</span>
+<span class="text-sm">Akun Terhubung</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">add_box</span>
+<span class="text-sm">Buat Postingan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">settings</span>
+<span class="text-sm">Pengaturan</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User avatar profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALU4Q28EP7AJxictBV8yF-8wlW4_IaczsEyB_5l10Ug2vOVeXCNROxPcBUFsluKNMJxa_WxnwlaVZcezsWRs_4AKXXbdH52pD7Wx-VtuZ2UCRBFRgkTwGgx-oByf6NN2FMvMItFIwhSHxdJxNp026OxUcLTN-Lq7k9cfh6DoM-s1_1-G_RYe6s9BpcpXM2fQUPK8eV7Ugz6ad9cTyxjj2j9RH8krJ5Lzj0qiEfZnMjkV58UxZn-nMZZIVZPV817u7LXQWTeXX4cUk"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Budi Santoso</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 truncate">Admin Pro</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-sm">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto">
+<!-- Top Header -->
+<header class="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 sticky top-0 z-10">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Beranda</h2>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full cursor-pointer">notifications</span>
+<span class="absolute top-1.5 right-1.5 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Postingan Baru
+                </button>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Header Text -->
+<div class="space-y-1">
+<h3 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Ringkasan Statistik</h3>
+<p class="text-slate-500 dark:text-slate-400">Pantau performa postingan Anda di semua platform hari ini.</p>
+</div>
+<!-- Stats Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-3 bg-primary/10 rounded-xl text-primary">
+<span class="material-symbols-outlined">stacked_bar_chart</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded-lg">
+                            +12.5% <span class="material-symbols-outlined text-xs ml-0.5">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Postingan</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white mt-1">1,284</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-3 bg-amber-100 dark:bg-amber-500/10 rounded-xl text-amber-600">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded-lg">
+                            +5% <span class="material-symbols-outlined text-xs ml-0.5">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Terjadwal</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white mt-1">42</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="p-3 bg-emerald-100 dark:bg-emerald-500/10 rounded-xl text-emerald-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<span class="text-emerald-500 text-sm font-bold flex items-center bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded-lg">
+                            +10.2% <span class="material-symbols-outlined text-xs ml-0.5">trending_up</span>
+</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Sukses Terbit</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white mt-1">1,230</p>
+</div>
+</div>
+<!-- Table Section -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">Postingan Terbaru</h3>
+<button class="text-primary text-sm font-semibold hover:underline">Lihat Semua</button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Media</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Caption</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Jadwal</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Platform</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="size-12 rounded-lg bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Marketing post thumbnail image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAngcQixmb76Uw6ZbABSX8ga0OMGFhJoH8EDN9P8BNnG2K640tgGXusiAv7A3lWBkBfhqzgEtY0laz05THZIm9nCW6EEw219EHJjHtu2pxKQjexMy89z_5XHEarXlS7iElymJIGYBaxUiyo7nW-rjGQA2ix8dadQmt6pI20xOOa-0nENrhG7k6Ii-lqQHQWUkFGusLa8W3oHGDH168DCq2dWIKXWYMQJbnI6IIB94QJRHwNSkwd6CPfoNCx4OCFavgcJn0iVPbowo"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-900 dark:text-slate-200 max-w-xs truncate">Promo Diskon Akhir Tahun untuk Semua Produk!</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-500 dark:text-slate-400">25 Okt 2023</p>
+<p class="text-xs font-bold text-slate-700 dark:text-slate-300">10:00 WIB</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg w-fit">
+<span class="material-symbols-outlined text-blue-600 text-lg">photo_camera</span>
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Instagram</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-700 border border-amber-200">Terjadwal</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="size-12 rounded-lg bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Dashboard analytic screenshot post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKEknqKI32U_TOBwzPFFOt8eYZBPsAhjn75sx1SOnA9SDfLqTncSTyf1hpsRrozevKw9U7jg3mlh77m7Xs_ywUakP9rJyNiRKcRSCCtXfqaJR80WUpddl2EES0kK2JTYzt-dyjbXgGP1u-jCl6tlfJjps1O3bho3l0j_rWC27asn80OOLSg81qQujLduPvyY5Xu_J4qduIwLY3LAGXLvz6y3QdT-UbngbUok5yRlXknBxmhkUnVyo0JB7SheFL1yl5-D9Hjqqxnig"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-900 dark:text-slate-200 max-w-xs truncate">Tips Mengelola Konten agar Tetap Konsisten...</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-500 dark:text-slate-400">24 Okt 2023</p>
+<p class="text-xs font-bold text-slate-700 dark:text-slate-300">14:30 WIB</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg w-fit">
+<span class="material-symbols-outlined text-primary text-lg">social_leaderboard</span>
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Facebook</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">Sukses</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="size-12 rounded-lg bg-slate-100 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Giveaway winner announcement post" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb887G5a4OMS3sJYc1gxkKUIvm39r0Qif74s3h15agrDQ5-BndhjLk4hy3xZzJ24biESY-JlAleTdOPUUZVNOZE6EOATMqgB62OQQFWTega-SqDFJ79zY4WBxrEmdFCNecs4X0nV1gTljKLBxiwOfUopm5yWVxYE3JJ2_sl4xfilE_a15Axovgq2lh0sR0_lNZwVG769WYw2a3U2vdMMvxkEOa2ToGhUGK_pOhZ80DieKMJf1EIUy5HJJ91bRATvYNrPg_DRIC5xw"/>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="text-sm font-medium text-slate-900 dark:text-slate-200 max-w-xs truncate">Pengumuman Pemenang Giveaway Mingguan!</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-500 dark:text-slate-400">23 Okt 2023</p>
+<p class="text-xs font-bold text-slate-700 dark:text-slate-300">09:00 WIB</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg w-fit">
+<span class="material-symbols-outlined text-blue-600 text-lg">photo_camera</span>
+<span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Instagram</span>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-3 py-1 text-xs font-bold rounded-full bg-rose-100 text-rose-700 border border-rose-200">Gagal</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0668e0",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Lupa Kata Sandi - Aplikasi</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header / Nav -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 px-6 py-4 lg:px-40">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">shield_lock</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight">Aplikasi</h2>
+</div>
+<a class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+</header>
+<!-- Main Content -->
+<main class="flex flex-1 items-center justify-center p-6">
+<div class="layout-content-container flex flex-col w-full max-w-[480px] bg-white dark:bg-slate-900 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<!-- Icon & Title Section -->
+<div class="flex flex-col gap-4 mb-8">
+<div class="flex items-center justify-center size-16 rounded-full bg-primary/10 text-primary mx-auto">
+<span class="material-symbols-outlined text-4xl">key_visualizer</span>
+</div>
+<div class="text-center">
+<h1 class="text-3xl font-black leading-tight tracking-tight mb-2">Lupa Kata Sandi?</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed">
+                            Jangan khawatir, ini terjadi pada siapa saja. Masukkan email Anda untuk mendapatkan tautan pemulihan.
+                        </p>
+</div>
+</div>
+<!-- Form Section -->
+<form action="#" class="space-y-6" onsubmit="return false;">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300" for="email">
+                            Alamat Email
+                        </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-lg">mail</span>
+</div>
+<input class="form-input block w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-slate-400" id="email" name="email" placeholder="nama@email.com" required="" type="email"/>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg bg-primary py-3 px-6 text-white font-bold text-base hover:bg-primary/90 transition-all shadow-lg shadow-primary/20" type="submit">
+<span>Kirim Tautan Pemulihan</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</form>
+<!-- Footer Links -->
+<div class="mt-8 flex flex-col gap-4 text-center">
+<div class="h-px w-full bg-slate-100 dark:bg-slate-800"></div>
+<p class="text-sm text-slate-500 dark:text-slate-400">
+                        Ingat kata sandi Anda? 
+                        <a class="text-primary font-bold hover:underline ml-1 inline-flex items-center gap-1" href="#">
+                            Masuk di sini
+                        </a>
+</p>
+<a class="text-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 underline transition-colors" href="#">
+                        Butuh bantuan lainnya?
+                    </a>
+</div>
+</div>
+</main>
+<!-- Decorative Footer Element -->
+<footer class="py-10 flex flex-col items-center justify-center opacity-50">
+<p class="text-xs text-slate-400">© 2024 Aplikasi. Hak Cipta Dilindungi.</p>
+</footer>
+</div>
+</div>
+<!-- Background Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none overflow-hidden">
+<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</body></html>

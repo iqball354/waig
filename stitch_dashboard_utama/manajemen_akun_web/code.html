@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Meta Auth Manager - Akun Terhubung</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0668e0",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1823",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined block text-2xl">database</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Meta Auth</h2>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">link</span>
+<span class="text-sm font-medium">Akun Terhubung</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">Log Aktivitas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Pengaturan</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="h-10 w-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden" data-alt="User profile avatar placeholder">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpfUUi514UsdO48VLF_4eCzjBT2pMF_g7tDeKX77JYOpn_OX1PUxfF6s6Na1utTR15n1drfqGF-k6cBcQKmHYuDwnhueMPcBMoHpUf_79VTjdan6E5R-QgamCCZEf4qDPl1YDr-gMkf0M-bGpV87shp-Z5zpf5lqiByCzGtv-keIAAOoxtYL8nLHma8ZpLwZB7GAfGu3rR-XWcWkKWhSksZrzEv46fk8hvmRnJ41WGyakKlpdtWOVrDqS9wZk7TEctceJXI33OsC0"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Admin Panel</p>
+<p class="text-xs text-slate-500 truncate">admin@meta-auth.id</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto flex flex-col">
+<!-- Top Header -->
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex-1 max-w-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary text-sm" placeholder="Cari akun atau ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-6xl mx-auto w-full space-y-8">
+<!-- Hero Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight">Manajemen Akun Terhubung</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Kelola integrasi Facebook Page dan Instagram Business dalam satu dashboard pusat.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary text-white px-5 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-700 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-xl font-bold">add</span>
+                            Hubungkan Akun Baru
+                        </button>
+<button class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xl">refresh</span>
+                            Segarkan Semua Token
+                        </button>
+</div>
+</div>
+<!-- Alert Information -->
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-5 flex gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">info</span>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-1 text-base">Pemberitahuan Kebijakan Meta</h4>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Berdasarkan kebijakan keamanan terbaru dari Meta, token akses berumur panjang (long-lived) wajib diperbarui secara berkala setiap 60 hingga 90 hari. Kegagalan melakukan pembaruan akan mengakibatkan pemutusan koneksi API secara otomatis. 
+                            <a class="font-bold underline ml-1 hover:text-primary transition-colors" href="#">Pelajari selengkapnya</a>.
+                        </p>
+</div>
+</div>
+<!-- Account List -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Account Header Labels -->
+<div class="hidden md:grid grid-cols-6 px-6 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+<div class="col-span-2">Nama Akun</div>
+<div>Jenis</div>
+<div>Status</div>
+<div>Kedaluwarsa Token</div>
+<div class="text-right">Aksi</div>
+</div>
+<!-- Account Row 1 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="grid grid-cols-1 md:grid-cols-6 items-center gap-4">
+<div class="col-span-2 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-primary" data-alt="Facebook icon decorative">
+<span class="material-symbols-outlined text-3xl">social_leaderboard</span>
+</div>
+<div>
+<h3 class="font-bold text-base">Travel Nusantara ID</h3>
+<p class="text-xs text-slate-500">ID: 88294102931</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">flag</span>
+<span class="text-sm font-medium">FB Page</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                    Aktif
+                                </span>
+</div>
+<div class="text-sm text-slate-600 dark:text-slate-400">
+<p class="font-medium">12 Mei 2024</p>
+<p class="text-[10px] text-emerald-500">Sisa 45 hari</p>
+</div>
+<div class="text-right">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Account Row 2 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="grid grid-cols-1 md:grid-cols-6 items-center gap-4">
+<div class="col-span-2 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-pink-100 flex items-center justify-center text-pink-600" data-alt="Instagram icon decorative">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+</div>
+<div>
+<h3 class="font-bold text-base">@nusantara_travel</h3>
+<p class="text-xs text-slate-500">ID: 10293184920</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">business</span>
+<span class="text-sm font-medium">IG Business</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold">
+<span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+                                    Perlu Re-auth
+                                </span>
+</div>
+<div class="text-sm text-slate-600 dark:text-slate-400">
+<p class="font-medium text-rose-500">Kedaluwarsa</p>
+<p class="text-[10px] text-rose-500">2 hari yang lalu</p>
+</div>
+<div class="text-right">
+<button class="bg-primary/10 text-primary hover:bg-primary hover:text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-all">
+                                    Re-auth
+                                </button>
+</div>
+</div>
+</div>
+<!-- Account Row 3 -->
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="grid grid-cols-1 md:grid-cols-6 items-center gap-4">
+<div class="col-span-2 flex items-center gap-4">
+<div class="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center text-primary" data-alt="Facebook icon decorative">
+<span class="material-symbols-outlined text-3xl">social_leaderboard</span>
+</div>
+<div>
+<h3 class="font-bold text-base">Kuliner Hits Bandung</h3>
+<p class="text-xs text-slate-500">ID: 77210592183</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">flag</span>
+<span class="text-sm font-medium">FB Page</span>
+</div>
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                                    Aktif
+                                </span>
+</div>
+<div class="text-sm text-slate-600 dark:text-slate-400">
+<p class="font-medium">20 Juni 2024</p>
+<p class="text-[10px] text-slate-400">Sisa 84 hari</p>
+</div>
+<div class="text-right">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More (Optional) -->
+<div class="flex justify-center py-4">
+<button class="text-sm font-semibold text-slate-500 hover:text-primary flex items-center gap-2">
+                        Tampilkan lebih banyak
+                        <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>
